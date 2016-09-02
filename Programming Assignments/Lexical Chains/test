@@ -1,0 +1,16 @@
+import nltk
+from nltk.corpus import wordnet as wn
+ 
+sentence = "The woman is driving the car"
+
+
+for s in nltk.sent_tokenize(sentence):
+    s = nltk.wordpunct_tokenize(s)
+    lemm = []
+    for word in s:
+        for synset in wn.synsets(word):
+            lemm.append(synset.lemmas)
+            for l in lemm:
+                print l.name
+                        
+                     
